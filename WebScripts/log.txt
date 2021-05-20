@@ -1,0 +1,13 @@
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2021-05-14 18:43:03 -05; 3h 6min ago
+    Process: 4336 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+   Main PID: 4474 (mysqld)
+     Status: "Server is operational"
+      Tasks: 37 (limit: 9337)
+     Memory: 348.7M
+     CGroup: /system.slice/mysql.service
+             └─4474 /usr/sbin/mysqld
+
+may 14 13:42:46 furakam systemd[1]: Starting MySQL Community Server...
+may 14 18:43:03 furakam systemd[1]: Started MySQL Community Server.

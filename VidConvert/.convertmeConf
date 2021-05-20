@@ -1,0 +1,3 @@
+#Recuerda que el orden de las variables es obligatorio("escribanDentroDeLasComillas").
+ffmpegRute="/home/furakam/ScriptMe"
+directorio_destino="/home/furakam/Descargas"
