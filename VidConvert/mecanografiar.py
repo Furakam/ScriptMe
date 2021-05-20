@@ -17,6 +17,8 @@ def mecanografiar(color,texto,lineas):
     print(Fore.YELLOW+Style.BRIGHT,end='')
   elif color == "white":
     print(Fore.WHITE+Style.BRIGHT,end='')
+  elif color == "purple":
+    print(Fore.LIGHTMAGENTA_EX+Style.BRIGHT,end='')
   #Aqui empieza la funcion demecanografiar
   li=[]
   num_caracteres=len(texto)
@@ -25,7 +27,7 @@ def mecanografiar(color,texto,lineas):
   for palabra in li:
     stdout.write(palabra)
     stdout.flush()
-    sleep(.015)
+    sleep(.0015)
 
   if lineas == 'none':
     print("",end='')

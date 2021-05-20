@@ -10,12 +10,12 @@ command('clear')
 #Validando archivo de configuracion
 path_script= path.split(__file__)#Divide la ruta del archivo Separando la carpeta del archivo
 #Metodo para comprobar la configuracion y obtener valores
-def comprobarConfiguracion(variable_deseada):
+mecanografiar('yellow','Iniciando...',1)
+sleep(.5)
+def comprobarConfiguracion():
 
   if ".convertmeConf" in listdir(path_script[0]):
-    mecanografiar('yellow','Iniciando...',1)
-    sleep(.5)
-    f=open('.convertmeConf','r')
+    f=open(path_script[0]+'/.convertmeConf','r')
     datosConfig= f.read().splitlines()
     #Obteniendo las rutas del archivo de configuracion
     ffmpegRute=datosConfig[1].replace('ffmpegRute="',"")
@@ -24,17 +24,22 @@ def comprobarConfiguracion(variable_deseada):
     directorio_destino=datosConfig[2].replace("directorio_destino=","")
     directorio_destino=directorio_destino.replace('"',"")
     #---------------------------------------------------
-    if variable_deseada == 'ffmpegRute':
-      return ffmpegRute
-    elif variable_deseada == 'directorio_destino':
-      return directorio_destino
+    return directorio_destino,ffmpegRute
   else:
     mecanografiar('red',"Archivo de configuracion no encontrado.",0)
     mecanografiar('blue','Se procedera a crear un archivo predeterminado.',1)
-    f=open('.convertmeConf','w')
+    f=open(path_script[0]+'/.convertmeConf','w')
     f.write('#Recuerda que el orden de las variables es obligatorio.\n')
     f.write('ffmpegRute="/el/directorio/ffmpeg"\n')
     f.write('directorio_destino="/tu/directorio/destino"')
 
-comprobarConfiguracion('nothinf')
-menu()
+
+listaRutas=comprobarConfiguracion()
+menu(listaRutas[0],listaRutas[1])
+input(Fore.WHITE)
+
+cambiandoRuta_destino()
+
+listaRutas=comprobarConfiguracion()
+menu(listaRutas[0],listaRutas[1])
+input(Fore.WHITE)
